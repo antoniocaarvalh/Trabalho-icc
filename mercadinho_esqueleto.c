@@ -84,6 +84,10 @@ void consultarEstoque(Estoque *estoque){
     }
     printf("--------------------------------------------------\n");
 }
+void consultarSaldo(Estoque *estoque){
+    printf("Saldo: %d\n", estoque->caixa);
+    printf("--------------------------------------------------\n");
+}
 
 int main() {
     Estoque estoque;
