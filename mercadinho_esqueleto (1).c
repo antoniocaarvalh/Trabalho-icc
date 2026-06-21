@@ -96,7 +96,7 @@ void realizarVenda(Estoque *estoque){
         total+=estoque->produtos[k].preco;
         estoque->produtos[k].quantidade-=1;
     }
-    printf("Total: %.2f\n");
+    printf("Total: %.2f\n",total);
     printf("--------------------------------------------------\n");
 }
 void consultarEstoque(Estoque *estoque){
