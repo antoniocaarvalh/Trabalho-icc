@@ -30,7 +30,11 @@ Produto *buscarProduto(Estoque *estoque, int codigo);
 
 
 void inserirProduto(Estoque *estoque, char *nome, int quantidade, float preco);
-
+    estoque->produtos[estoque->total].codigo=estoque->total;
+    estoque->produtos[estoque->total].quantidade=quantidade;
+    estoque->produtos[estoque->total].preco=preco;
+    strcpy(estoque->produtos[estoque->total].nome, nome);
+    estoque->total++;
 
 void aumentarEstoque(Estoque *estoque, int codigo, int quantidade);
 
@@ -38,7 +42,6 @@ void aumentarEstoque(Estoque *estoque, int codigo, int quantidade);
 void modificarPreco(Estoque *estoque, int codigo, float novoPreco);
 
 
- */
 void realizarVenda(Estoque *estoque);
 
 
