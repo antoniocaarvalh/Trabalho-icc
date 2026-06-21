@@ -30,11 +30,7 @@ Produto *buscarProduto(Estoque *estoque, int codigo);
 
 
 void inserirProduto(Estoque *estoque, char *nome, int quantidade, float preco);
-    estoque->produtos[estoque->total].codigo=estoque->total;
-    estoque->produtos[estoque->total].quantidade=quantidade;
-    estoque->produtos[estoque->total].preco=preco;
-    strcpy(estoque->produtos[estoque->total].nome, nome);
-    estoque->total++;
+
 
 void aumentarEstoque(Estoque *estoque, int codigo, int quantidade);
 
@@ -56,6 +52,13 @@ void inicializar(Estoque *estoque);
 
 void finalizarDia(Estoque *estoque);
 
+void inserirProduto(Estoque *estoque, char *nome, int quantidade, float preco){
+    estoque->produtos[estoque->total].codigo=estoque->total;
+    estoque->produtos[estoque->total].quantidade=quantidade;
+    estoque->produtos[estoque->total].preco=preco;
+    strcpy(estoque->produtos[estoque->total].nome, nome);
+    estoque->total++;
+}
 
 int main() {
     Estoque estoque;
