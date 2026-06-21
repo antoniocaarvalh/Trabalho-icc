@@ -28,16 +28,32 @@ void aumentarEstoque(Estoque *estoque, int codigo, int quantidade){
 }
 
 void modificarPreco(Estoque *estoque, int codigo, float novoPreco){
-
+    estoque->produtos[codigo].preco=novoPreco;
 }
 void realizarVenda(Estoque *estoque){
-
+    int k = 0;
+    float total=0.0;
+    while(k!=-1){
+        scanf(" %d",&k);
+        printf("%s ",estoque->produtos[k].nome);
+        printf("%d\n",estoque->produtos[k].preco);
+        total+=estoque->produtos[k].preco;
+        estoque->produtos[k].quantidade-=1;
+    }
+    printf("Total: %.2f\n",total);
+    printf("--------------------------------------------------\n");
 }
 void consultarEstoque(Estoque *estoque){
-
+    for(int i=0;i<(estoque->total);i++){
+        printf("%d ",estoque->produtos[i].codigo);
+        printf("%s ",estoque->produtos[i].nome);
+        printf("%d\n",estoque->produtos[i].quantidade);
+    }
+    printf("--------------------------------------------------\n");
 }
 void consultarSaldo(Estoque *estoque){
-    
+    printf("Saldo: %d\n", estoque->caixa);
+    printf("--------------------------------------------------\n");
 }
 
 void inicializar(Estoque *estoque){
@@ -83,34 +99,7 @@ void inserirProduto(Estoque *estoque, char *nome, int quantidade, float preco){
     strcpy(estoque->produtos[estoque->total].nome, nome);
     estoque->total++;
 }
-void modificarPreco(Estoque *estoque, int codigo, float novoPreco){
-    estoque->produtos[codigo].preco=novoPreco;
-}
-void realizarVenda(Estoque *estoque){
-    int k = 0;
-    float total=0.0;
-    while(k!=-1){
-        scanf(" %d",&k);
-        printf("%s ",estoque->produtos[k].nome);
-        printf("%d\n",estoque->produtos[k].preco);
-        total+=estoque->produtos[k].preco;
-        estoque->produtos[k].quantidade-=1;
-    }
-    printf("Total: %.2f\n",total);
-    printf("--------------------------------------------------\n");
-}
-void consultarEstoque(Estoque *estoque){
-    for(int i=0;i<(estoque->total);i++){
-        printf("%d ",estoque->produtos[i].codigo);
-        printf("%s ",estoque->produtos[i].nome);
-        printf("%d\n",estoque->produtos[i].quantidade);
-    }
-    printf("--------------------------------------------------\n");
-}
-void consultarSaldo(Estoque *estoque){
-    printf("Saldo: %d\n", estoque->caixa);
-    printf("--------------------------------------------------\n");
-}
+
 
 int main() {
     Estoque estoque;
